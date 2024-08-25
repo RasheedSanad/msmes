@@ -37,11 +37,20 @@ final goRouter = GoRouter(
         StatefulShellBranch(
           navigatorKey: _shellNavigatorAKey,
           routes: [
-            // home
+            // HOME PAGE
             GoRoute(
               path: AppRouterConstant.HOME_PAGE,
               pageBuilder: (context, state) =>
                   AppRouter.homePageRouteBuilder(context, state),
+              routes: [
+                // TEST PAGE
+
+                GoRoute(
+                  path: AppRouterConstant.TEST_PAGE_WITHOUT_PATH,
+                  pageBuilder: (context, state) =>
+                      AppRouter.testPageRouteBuilder(context, state),
+                ),
+              ],
             ),
           ],
         ),

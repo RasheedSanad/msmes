@@ -1,4 +1,6 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
@@ -10,11 +12,15 @@ import 'core/app/my_app.dart';
 void main() async {
   await _init();
   runApp(
-    EasyLocalization(
-      supportedLocales: CLanguageManager.ALL_LOCAL,
-      path: CLanguageManager.ASSET_PATH_LOCALISATIONS,
-      startLocale: CLanguageManager.ARABIC_LOCAL,
-      child: Phoenix(child: MyApp()),
+    DevicePreview(
+      // enabled: !kReleaseMode,
+      enabled: false,
+      builder: (context) => EasyLocalization(
+        supportedLocales: CLanguageManager.ALL_LOCAL,
+        path: CLanguageManager.ASSET_PATH_LOCALISATIONS,
+        startLocale: CLanguageManager.ARABIC_LOCAL,
+        child: Phoenix(child: MyApp()),
+      ),
     ),
   );
 }

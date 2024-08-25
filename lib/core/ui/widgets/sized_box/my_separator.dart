@@ -1,26 +1,34 @@
 import 'package:flutter/material.dart';
 
 class MySeparator extends StatelessWidget {
-  const MySeparator({Key? key, this.height = 1, this.color = Colors.black})
-      : super(key: key);
+  const MySeparator({
+    super.key,
+    this.height = 1,
+    this.color = Colors.black,
+    this.decoration,
+  });
   final double height;
   final Color color;
-
+  final BoxDecoration? decoration;
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         final boxWidth = constraints.constrainWidth();
-        const dashWidth = 5.0;
+        const dashWidth = 3.0;
         final dashHeight = height;
         final dashCount = (boxWidth / (2 * dashWidth)).floor();
         return Flex(
-          children:  List.generate(dashCount, (_) {
-            return  SizedBox(
+          verticalDirection: VerticalDirection.up,
+          children: List.generate(dashCount, (_) {
+            return Container(
+              decoration: decoration,
               width: dashWidth,
               height: dashHeight,
               child: DecoratedBox(
-                decoration: BoxDecoration(color: color),
+                decoration: BoxDecoration(
+                  color: color,
+                ),
               ),
             );
           }),

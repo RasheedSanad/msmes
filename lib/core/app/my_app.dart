@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,23 +17,28 @@ class MyApp extends StatelessWidget {
     /// debugInvertOversizedImages : If there is an image that affects the program's performance, it flips the image
     // debugInvertOversizedImages = true;
     return ScreenUtilInit(
-        designSize: const Size(360, 690),
-        minTextAdapt: true,
-        splitScreenMode: true,
-        builder: (context, child) {
-          return MaterialApp.router(
-            debugShowCheckedModeBanner: false,
-            // router
-            routerConfig: goRouter,
-            // localizations
-            localizationsDelegates: context.localizationDelegates,
-            supportedLocales: context.supportedLocales,
-            locale: context.locale,
-            // theme
-            theme: AppTheme.getThemeLight,
-            darkTheme: AppTheme.getThemeDark,
-            //
-          );
-        });
+      designSize: const Size(360, 690),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          // router
+          routerConfig: goRouter,
+          // localizations
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
+          // theme
+          theme: AppTheme.getThemeLight,
+          darkTheme: AppTheme.getThemeDark,
+          // // device preview test UI
+          // useInheritedMediaQuery: true,
+          // locale: DevicePreview.locale(context),
+          // builder: DevicePreview.appBuilder,
+          //
+        );
+      },
+    );
   }
 }

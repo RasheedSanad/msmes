@@ -10,12 +10,14 @@ class UiLabelLarge extends StatelessWidget {
     this.textAlign,
     this.decoration,
     this.fontFamily,
+    this.maxLines,
   });
   final String text;
   final Color? color;
   final TextAlign? textAlign;
   final TextDecoration? decoration;
   final String? fontFamily;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,7 @@ class UiLabelLarge extends StatelessWidget {
       textAlign: textAlign,
       decoration: decoration,
       fontFamily: fontFamily,
+      maxLines: maxLines,
     );
   }
 }

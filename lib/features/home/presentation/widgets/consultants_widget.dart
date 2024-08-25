@@ -1,25 +1,53 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:msmes_app/core/res/resources_manager.dart';
 import 'package:msmes_app/core/ui/widgets/images_icons/ui_svg_image_asset.dart';
 import 'package:msmes_app/core/ui/widgets/sized_box/gap_w18.dart';
+import 'package:msmes_app/core/ui/widgets/text/ui_label_large.dart';
 
 import '../../../../core/res/decoration_manager.dart';
 import '../../../../core/res/values_manager.dart';
+import '../../../../core/ui/pages/ui_error.dart';
+import '../../../../core/ui/pages/ui_failure.dart';
+import '../../../../core/ui/pages/ui_loading.dart';
 import '../../../../core/ui/widgets/cards/ui_card.dart';
 import '../../../../core/ui/widgets/sized_box/gap_h4.dart';
 import '../../../../core/ui/widgets/text/ui_body_smale.dart';
 import '../../../../core/ui/widgets/text/ui_title_small.dart';
 import '../../domain/entities/consultant_entity.dart';
+import '../bloc_consultants/home_consultants_bloc.dart';
 
 class ConsultantsWidget extends StatelessWidget {
-  const ConsultantsWidget({
-    super.key,
-    required this.consultants,
-  });
-  final List<ConsultantEntity> consultants;
+  const ConsultantsWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    return BlocBuilder<HomeConsultantsBloc, HomeConsultantsState>(
+      builder: (context, state) {
+        if (state is HomeConsultantsLoading) {
+          return const UiLoading();
+        }
+        if (state is HomeConsultantsLoaded) {
+          return _getWidget(context, state.consultants);
+        }
+        if (state is HomeConsultantsLoadFailure) {
+          return UiFailure(
+            appFailure: state.appFailure,
+            onTap: () => _onTap(context),
+          );
+        }
+        return UiError(
+          onTap: () => _onTap(context),
+        );
+      },
+    );
+  }
+
+  _onTap(BuildContext context) {
+    context.read<HomeConsultantsBloc>()..add(OnGetConsultants());
+  }
+
+  Widget _getWidget(BuildContext context, List<ConsultantEntity> consultants) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
     Size size = MediaQuery.of(context).size;
     return SizedBox(

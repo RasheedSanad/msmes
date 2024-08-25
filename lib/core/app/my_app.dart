@@ -8,6 +8,7 @@ import 'package:msmes_app/features/home/presentation/bloc/home_bloc.dart';
 import '../../config/localization/c_language_manager.dart';
 import '../../config/router/app_router_provider.dart';
 import '../../config/theme/app_theme.dart';
+import '../../features/home/presentation/bloc_consultants/home_consultants_bloc.dart';
 import 'injection_container.dart' as di;
 
 class MyApp extends StatelessWidget {
@@ -28,7 +29,10 @@ class MyApp extends StatelessWidget {
           providers: [
             BlocProvider(
               create: (_) => di.locator<HomeBloc>(),
-            )
+            ),
+            BlocProvider(
+              create: (_) => di.locator<HomeConsultantsBloc>(),
+            ),
           ],
           child: MaterialApp.router(
             debugShowCheckedModeBanner: false,

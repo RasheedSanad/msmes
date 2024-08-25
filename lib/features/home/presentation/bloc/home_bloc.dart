@@ -9,16 +9,15 @@ part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final GetServicesUsecase _servicesUsecase;
-  HomeBloc(this._servicesUsecase) : super(HomeEmpty()) {
+  HomeBloc(this._servicesUsecase) : super(HomeServicesEmpty()) {
     on<OnGetServices>((event, emit) async {
-      emit(HomeLoading());
+      emit(HomeServicesLoading());
       final failureOrServices = await _servicesUsecase.execute();
       failureOrServices.fold((failure) {
-        emit(HomeLoadFailure(failure));
+        emit(HomeServicesLoadFailure(failure));
       }, (services) {
-        emit(HomeLoadedServices(services));
+        emit(HomeServicesLoaded(services));
       });
     });
-    //
   }
 }

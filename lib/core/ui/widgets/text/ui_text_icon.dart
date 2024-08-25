@@ -31,6 +31,7 @@ class UiTextIcon extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           icon,
           const GapW4(),

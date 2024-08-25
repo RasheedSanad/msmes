@@ -2,6 +2,8 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:msmes_app/core/res/values_manager.dart';
+import 'package:msmes_app/core/ui/pages/ui_error.dart';
+import 'package:msmes_app/core/ui/pages/ui_failure.dart';
 import 'package:msmes_app/core/ui/pages/ui_loading.dart';
 import 'package:msmes_app/core/ui/widgets/sized_box/gap_w18.dart';
 import 'package:msmes_app/core/ui/widgets/text/ui_label_large.dart';
@@ -14,21 +16,10 @@ import '../../../../core/ui/widgets/text/ui_title_small.dart';
 import '../../domain/entities/service_entity.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ServicesWidget extends StatefulWidget {
+class ServicesWidget extends StatelessWidget {
   const ServicesWidget({
     super.key,
   });
-
-  @override
-  State<ServicesWidget> createState() => _ServicesWidgetState();
-}
-
-class _ServicesWidgetState extends State<ServicesWidget> {
-  @override
-  void initState() {
-    context.read<HomeBloc>()..add(OnGetServices());
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,17 +28,28 @@ class _ServicesWidgetState extends State<ServicesWidget> {
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
         log('1:${state}', name: _PAGE_NAME);
-        if (state is HomeLoading) {
+        if (state is HomeServicesLoading) {
           return const UiLoading();
         }
-        if (state is HomeLoadedServices) {
+        if (state is HomeServicesLoaded) {
           print('Rendering services: ${state.services}');
           return _getWidget(context, state.services);
         }
-        // TODO: change failure by appFailure
-        return UiLabelLarge('failure');
+        if (state is HomeServicesLoadFailure) {
+          return UiFailure(
+            appFailure: state.appFailure,
+            onTap: () => _onTap(context),
+          );
+        }
+        return UiError(
+          onTap: () => _onTap(context),
+        );
       },
     );
+  }
+
+  _onTap(BuildContext context) {
+    context.read<HomeBloc>()..add(OnGetServices());
   }
 
   Widget _getWidget(BuildContext context, List<ServiceEntity> services) {

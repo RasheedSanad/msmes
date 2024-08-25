@@ -19,4 +19,7 @@ class C {
   static const String prominent_service = 'prominent_service';
   static const String distinguished_consultants = 'distinguished_consultants';
   static const String all = 'all';
+  static const String no_internet_connection = 'no_internet_connection';
+  static const String unknown_error = 'unknown_error';
+  static const String reload = 'reload';
 }

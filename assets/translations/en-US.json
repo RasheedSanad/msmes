@@ -14,5 +14,8 @@
   "startups": "startups",
   "prominent_service": "prominent service",
   "distinguished_consultants": "distinguished consultants",
-  "all": "all"
+  "all": "all",
+  "no_internet_connection": "no internet connection",
+  "unknown_error": "unknown error",
+  "reload": "reload"
 }

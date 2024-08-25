@@ -7,24 +7,27 @@ sealed class HomeState extends Equatable {
   List<Object> get props => [];
 }
 
-class HomeEmpty extends HomeState {}
+// * HomeServices
+class HomeServicesEmpty extends HomeState {}
 
-class HomeLoading extends HomeState {}
+class HomeServicesLoading extends HomeState {}
 
-class HomeLoadedServices extends HomeState {
+//
+class HomeServicesLoaded extends HomeState {
   final List<ServiceEntity> services;
 
-  const HomeLoadedServices(this.services);
+  const HomeServicesLoaded(this.services);
 
   @override
   List<Object> get props => [services];
 }
 
-class HomeLoadFailure extends HomeState {
+class HomeServicesLoadFailure extends HomeState {
   final AppFailure appFailure;
 
-  const HomeLoadFailure(this.appFailure);
+  const HomeServicesLoadFailure(this.appFailure);
 
   @override
   List<Object> get props => [appFailure];
 }
+

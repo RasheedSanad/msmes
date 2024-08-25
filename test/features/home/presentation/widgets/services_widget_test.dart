@@ -1,4 +1,3 @@
-
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,7 +18,7 @@ void main() {
     // HttpOverrides.global = null;
   });
 
-   Widget _makeTestableWidget(Widget body) {
+  Widget _makeTestableWidget(Widget body) {
     return BlocProvider<HomeBloc>(
       create: (context) => mockHomeBloc,
       child: MaterialApp(
@@ -41,7 +40,7 @@ void main() {
 
   testWidgets('should show initial empty state', (WidgetTester tester) async {
     // Ensure the initial state is HomeEmpty
-    when(() => mockHomeBloc.state).thenReturn(HomeEmpty());
+    when(() => mockHomeBloc.state).thenReturn(HomeServicesEmpty());
 
     // Build the widget
     await tester.pumpWidget(_makeTestableWidget(const ServicesWidget()));
@@ -54,7 +53,7 @@ void main() {
   testWidgets('should show progress indicator when state is loading',
       (WidgetTester tester) async {
     // Arrange: Ensure the state is HomeLoading when accessed
-    when(() => mockHomeBloc.state).thenReturn(HomeLoading());
+    when(() => mockHomeBloc.state).thenReturn(HomeServicesLoading());
 
     // Act: Build the widget
     await tester.pumpWidget(_makeTestableWidget(const ServicesWidget()));
@@ -62,6 +61,4 @@ void main() {
     // Assert: Verify that UiLoading is displayed
     expect(find.byType(UiLoading), findsOneWidget);
   });
-
-
 }

@@ -10,10 +10,12 @@ import '../../../../helpers/test_helper.mocks.dart';
 
 void main() {
   late MockGetServicesUsecase mockGetServicesUsecase;
+  late MockGetConsultantsUsecase mockGetConsultantsUsecase;
   late HomeBloc homeBloc;
 
   setUp(() {
     mockGetServicesUsecase = MockGetServicesUsecase();
+    mockGetConsultantsUsecase = MockGetConsultantsUsecase();
     homeBloc = HomeBloc(mockGetServicesUsecase);
   });
   final testServiceModel = ServiceModel(
@@ -35,7 +37,7 @@ void main() {
         'initial state should be empty',
         () {
           // assert
-          expect(homeBloc.state, HomeEmpty());
+          expect(homeBloc.state, HomeServicesEmpty());
         },
       );
 
@@ -50,8 +52,8 @@ void main() {
         act: (bloc) => bloc.add(OnGetServices()),
         wait: const Duration(milliseconds: 500),
         expect: () => [
-          HomeLoading(),
-          HomeLoadFailure(ServerFailure()),
+          HomeServicesLoading(),
+          HomeServicesLoadFailure(ServerFailure()),
         ],
       );
     },

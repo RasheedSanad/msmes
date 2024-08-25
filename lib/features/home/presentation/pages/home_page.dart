@@ -60,20 +60,7 @@ class HomePage extends StatelessWidget {
           // prominent_service
           _titleWithSubTitle(C.prominent_service.tr(), C.all.tr()),
           const GapH4(),
-          const MostServicesWidget(
-            services: [
-              ServiceEntity(
-                title: 'الاستشارات',
-                content:
-                    'لديك سوال وتبحث عن اجابة، ستجد الاجابة في اي مجال تريد',
-              ),
-              ServiceEntity(
-                title: 'الارشاد',
-                content:
-                    "المشورة والتوجية في كل اقسام مشروعك واصنع قصة نجاح معنا",
-              ),
-            ],
-          ),
+          const ServicesWidget(),
           const GapH14(),
           // distinguished_consultants
           _titleWithSubTitle(C.distinguished_consultants.tr(), C.all.tr()),

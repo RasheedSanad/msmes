@@ -69,6 +69,13 @@ extension HexColor on Color {
 }
 
 //*
+extension SetNullToMapIfStringIsEmpty on String {
+  String? toMap() {
+    if (isEmpty) return null;
+    return this;
+  }
+}
+
 extension KeyIsNotExistInMap on Map<String, dynamic> {
   String? fromString(String key) {
     if (containsKey(key)) {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../error/app_failure.dart';
 import 'ui_error.dart';
+import 'ui_no_data.dart';
 import 'ui_offline.dart';
 
 class UiFailure extends StatelessWidget {
@@ -34,11 +35,12 @@ class UiFailure extends StatelessWidget {
     //     enableText: enableText,
     //     onTap: onTap,
     //   );
-    // } else if (appFailure == NoDataFailure()) {
-    //   return UiNoData(
-    //     enableText: enableText,
-    //   );
     // }
+    else if (appFailure == NoDataFailure()) {
+      return UiNoData(
+        enableText: enableText,
+      );
+    }
 
     return UiError(
       message: appFailure?.message ?? null,

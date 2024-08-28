@@ -17,5 +17,6 @@
     "all": "الكل",
     "no_internet_connection": "لا يوجد اتصال بالإنترنت",
     "unknown_error": "خطا غير معروف",
-    "reload": "اعد التحميل"
+    "reload": "اعد التحميل",
+    "there_is_no_data": "لا توجد بيانات"
 }

@@ -22,4 +22,5 @@ class C {
   static const String no_internet_connection = 'no_internet_connection';
   static const String unknown_error = 'unknown_error';
   static const String reload = 'reload';
+  static const String there_is_no_data = 'there_is_no_data';
 }

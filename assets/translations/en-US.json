@@ -17,5 +17,6 @@
   "all": "all",
   "no_internet_connection": "no internet connection",
   "unknown_error": "unknown error",
-  "reload": "reload"
+  "reload": "reload",
+  "there_is_no_data": "there is no data"
 }

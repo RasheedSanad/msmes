@@ -1,9 +1,12 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:msmes_app/core/ui/pages/ui_error.dart';
 import 'package:msmes_app/core/ui/pages/ui_loading.dart';
+import 'package:msmes_app/core/ui/pages/ui_no_data.dart';
 import 'package:msmes_app/features/home/domain/entities/service_entity.dart';
 import 'package:msmes_app/features/home/presentation/bloc/home_bloc.dart';
 import 'package:msmes_app/features/home/presentation/widgets/services_widget.dart';
@@ -19,12 +22,18 @@ void main() {
   });
 
   Widget _makeTestableWidget(Widget body) {
-    return BlocProvider<HomeBloc>(
-      create: (context) => mockHomeBloc,
-      child: MaterialApp(
-        home: body,
-      ),
-    );
+    return ScreenUtilInit(
+        designSize: const Size(360, 690),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (context, child) {
+          return BlocProvider<HomeBloc>(
+            create: (context) => mockHomeBloc,
+            child: MaterialApp(
+              home: body,
+            ),
+          );
+        });
   }
 
   final testServicesModel = [
@@ -46,8 +55,7 @@ void main() {
     await tester.pumpWidget(_makeTestableWidget(const ServicesWidget()));
 
     // Check that the widget displays the correct initial state
-    expect(find.byType(UiLoading),
-        findsNothing); // Adjust based on your initial UI
+    expect(find.byType(UiNoData), findsOneWidget);
   });
 
   testWidgets('should show progress indicator when state is loading',

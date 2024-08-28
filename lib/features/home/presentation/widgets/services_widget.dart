@@ -5,6 +5,7 @@ import 'package:msmes_app/core/res/values_manager.dart';
 import 'package:msmes_app/core/ui/pages/ui_error.dart';
 import 'package:msmes_app/core/ui/pages/ui_failure.dart';
 import 'package:msmes_app/core/ui/pages/ui_loading.dart';
+import 'package:msmes_app/core/ui/pages/ui_no_data.dart';
 import 'package:msmes_app/core/ui/widgets/sized_box/gap_w18.dart';
 import 'package:msmes_app/core/ui/widgets/text/ui_label_large.dart';
 import 'package:msmes_app/features/home/presentation/bloc/home_bloc.dart';
@@ -28,6 +29,9 @@ class ServicesWidget extends StatelessWidget {
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
         log('1:${state}', name: _PAGE_NAME);
+        if (state is HomeServicesEmpty) {
+          return const UiNoData();
+        }
         if (state is HomeServicesLoading) {
           return const UiLoading();
         }

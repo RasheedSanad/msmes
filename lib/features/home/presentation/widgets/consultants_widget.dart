@@ -10,6 +10,7 @@ import '../../../../core/res/values_manager.dart';
 import '../../../../core/ui/pages/ui_error.dart';
 import '../../../../core/ui/pages/ui_failure.dart';
 import '../../../../core/ui/pages/ui_loading.dart';
+import '../../../../core/ui/pages/ui_no_data.dart';
 import '../../../../core/ui/widgets/cards/ui_card.dart';
 import '../../../../core/ui/widgets/sized_box/gap_h4.dart';
 import '../../../../core/ui/widgets/text/ui_body_smale.dart';
@@ -24,6 +25,9 @@ class ConsultantsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeConsultantsBloc, HomeConsultantsState>(
       builder: (context, state) {
+        if (state is HomeConsultantsEmpty) {
+          return const UiNoData();
+        }
         if (state is HomeConsultantsLoading) {
           return const UiLoading();
         }

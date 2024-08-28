@@ -41,7 +41,7 @@ class ColorManager {
   static MaterialScheme _lightScheme() {
     return const MaterialScheme(
       brightness: Brightness.light,
-      primary: Color(0xff4c5c92),
+      primary: Color(0xff3DB2E4),
       surfaceTint: Color(4283194514),
       onPrimary: Color(4294967295),
       primaryContainer: Color(4292665855),

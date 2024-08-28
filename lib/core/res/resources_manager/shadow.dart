@@ -103,21 +103,22 @@ class _Shadow {
   }
 
   // Shadow 5
-  List<BoxShadow> s5(BuildContext context) {
+  List<BoxShadow> s5(
+    BuildContext context, {
+    Color? color,
+  }) {
     ThemeData theme = Theme.of(context);
     return [
       BoxShadow(
         blurRadius: AppSizes.RADIUS_12,
         offset: const Offset(0, 8),
-        color: theme.colorScheme.shadow,
+        color: color ?? theme.colorScheme.shadow,
         spreadRadius: AppSizes.RADIUS_6,
-        // inset: isPressed,
       ),
       BoxShadow(
         blurRadius: AppSizes.RADIUS_4,
         offset: const Offset(0, 4),
-        color: theme.colorScheme.shadow,
-        // inset: isPressed,
+        color: color ?? theme.colorScheme.shadow,
       ),
     ];
   }
@@ -198,6 +199,27 @@ class _Shadow {
         blurStyle: BlurStyle.inner,
         spreadRadius: -20,
         offset: const Offset(-20.0, -23),
+      ),
+    ];
+  }
+
+  // outer shadow
+  List<BoxShadow> outer1(BuildContext context, {Color? color}) {
+    ThemeData theme = Theme.of(context);
+    return [
+      BoxShadow(
+        blurRadius: AppSizes.RADIUS_2,
+        offset: const Offset(0, 1),
+        color: color ?? theme.colorScheme.shadow,
+        spreadRadius: AppSizes.RADIUS_0,
+        blurStyle: BlurStyle.outer,
+      ),
+      BoxShadow(
+        blurRadius: AppSizes.RADIUS_6,
+        offset: const Offset(0, 2),
+        color: color ?? theme.colorScheme.shadow,
+        spreadRadius: AppSizes.RADIUS_2,
+        blurStyle: BlurStyle.outer,
       ),
     ];
   }

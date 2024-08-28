@@ -3,5 +3,19 @@
     "idea": "فكرة",
     "my_tasks": "مهامي",
     "messages": "الرسائل",
-    "more": "المزيد"
+    "more": "المزيد",
+    "consultation": "استشارة",
+    "courses": "كورسات",
+    "financial_consultation": "استشارة مالية",
+    "business_startup_guide": "الدليل لتاسيس الاعمال",
+    "loan": "قرض",
+    "store_creation": "إنشاء متجر",
+    "products": "المنتجات",
+    "startups": "الشركات الناشئة",
+    "prominent_service": "ابرز الخدمات",
+    "distinguished_consultants": "إستشاريون مميزون",
+    "all": "الكل",
+    "no_internet_connection": "لا يوجد اتصال بالإنترنت",
+    "unknown_error": "خطا غير معروف",
+    "reload": "اعد التحميل"
 }

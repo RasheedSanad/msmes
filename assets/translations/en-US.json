@@ -1,7 +1,21 @@
 {
-  "main":"main",
-  "idea":"idea",
-  "my_tasks":"my tasks",
-  "messages":"messages",
-  "more":"more"
+  "main": "main",
+  "idea": "idea",
+  "my_tasks": "my tasks",
+  "messages": "messages",
+  "more": "more",
+  "consultation": "consultation",
+  "courses": "courses",
+  "financial_consultation": "financial consultation",
+  "business_startup_guide": "business startup guide",
+  "loan": "loan",
+  "store_creation": "store creation",
+  "products": "products",
+  "startups": "startups",
+  "prominent_service": "prominent service",
+  "distinguished_consultants": "distinguished consultants",
+  "all": "all",
+  "no_internet_connection": "no internet connection",
+  "unknown_error": "unknown error",
+  "reload": "reload"
 }

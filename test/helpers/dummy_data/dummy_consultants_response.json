@@ -1,0 +1,16 @@
+[
+    {
+        "name": "نجلاء",
+        "lastJob": "سكرتيرية تنفذية في المؤسسة الوطنية للتمويل الأصغر في اليمن",
+        "imageUrl": null,
+        "starts": 5,
+        "isMale": false
+    },
+    {
+        "name": "خالد",
+        "lastJob": "خبير في التسويق الالكتروني",
+        "imageUrl": null,
+        "starts": 4,
+        "isMale": true
+    }
+]

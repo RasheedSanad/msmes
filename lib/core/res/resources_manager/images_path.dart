@@ -2,7 +2,7 @@ part of resources_manager;
 
 //  Common Path
 const String _assets = "assets";
-const String _photoes = "$_assets/photoes";
+const String _photoes = "$_assets/images";
 // const String _icons = "$_assets/icons";
 
 class _ImagesPath {

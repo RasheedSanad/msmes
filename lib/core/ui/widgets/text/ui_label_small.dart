@@ -9,11 +9,13 @@ class UiLabelSmall extends StatelessWidget {
     this.color,
     this.decoration,
     this.textAlign,
+    this.maxLines,
   });
   final String text;
   final Color? color;
   final TextDecoration? decoration;
   final TextAlign? textAlign;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class UiLabelSmall extends StatelessWidget {
       color: color,
       decoration: decoration,
       textAlign: textAlign,
+      maxLines: maxLines,
     );
   }
 }

@@ -9,11 +9,13 @@ class UiBodySmall extends StatelessWidget {
     this.textAlign,
     this.color,
     this.textDirection,
+    this.maxLines,
   });
   final String text;
   final TextAlign? textAlign;
   final Color? color;
   final TextDirection? textDirection;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class UiBodySmall extends StatelessWidget {
       textAlign: textAlign,
       color: color,
       textDirection: textDirection,
+      maxLines: maxLines,
     );
   }
 }

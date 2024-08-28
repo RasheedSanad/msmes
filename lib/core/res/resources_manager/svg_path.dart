@@ -13,9 +13,12 @@ class _SvgPath {
   String home_outline = '$_svg/home_outline.svg';
   String lamp_fill = '$_svg/lamp_fill.svg';
   String lamp_outlined = '$_svg/lamp_outlined.svg';
-  String main_profile = '$_svg/main_profile.svg';
+  String man_profile = '$_svg/man_profile.svg';
   String menu_fries = '$_svg/menu_fries.svg';
   String message_fill = '$_svg/message_fill.svg';
   String message_outline = '$_svg/message_outline.svg';
   String womain_profile = '$_svg/womain_profile.svg';
+  String product_outlined = '$_svg/product_outlined.svg';
+  String star_fill = '$_svg/star_fill.svg';
+  String star_outline = '$_svg/star_outline.svg';
 }
